@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRAC Nexus — Web3 Communication Protocol</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#0b0f19;
+  color:#e5e7eb;
+  overflow-x:hidden;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(15,23,42,0.6);
+  backdrop-filter:blur(12px);
+  position:fixed;
+  width:100%;
+  z-index:1000;
+}
+
+nav h2{
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+nav button{
+  padding:10px 18px;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+nav button:hover{
+  transform:scale(1.05);
+}
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
+}
+
+.hero h1{
+  font-size:52px;
+  font-weight:800;
+  background:linear-gradient(90deg,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:18px;
+  color:#9ca3af;
+  max-width:600px;
+}
+
+.cta{
+  margin-top:30px;
+  padding:14px 28px;
+  background:#6366f1;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.cta:hover{
+  background:#4f46e5;
+}
+
+.section{
+  padding:100px 60px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.card{
+  background:#111827;
+  padding:30px;
+  border-radius:20px;
+  transition:0.3s;
+  border:1px solid #1f2937;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#6366f1;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.stat-box{
+  background:#111827;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.dapp{
+  background:#111827;
+  padding:40px;
+  border-radius:20px;
+  max-width:500px;
+  margin:40px auto;
+  border:1px solid #1f2937;
+}
+
+.dapp input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #374151;
+  background:#0b0f19;
+  color:white;
+}
+
+.dapp button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  color:white;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  color:#6b7280;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>TRAC NEXUS</h2>
+  <button onclick="connectWallet()">Connect Wallet</button>
+</nav>
+
+<section class="hero">
+  <h1>Decentralized Communication Protocol</h1>
+  <p>Secure. Scalable. Token-powered infrastructure for Web3-native customer engagement.</p>
+  <button class="cta">Launch App</button>
+</section>
+
+<section class="section">
+  <h2>Core Features</h2>
+  <div class="features">
+    <div class="card">
+      <h3>On-Chain Messaging</h3>
+      <p>Immutable communication logs secured by smart contracts.</p>
+    </div>
+    <div class="card">
+      <h3>Token Incentives</h3>
+      <p>Stake TRAC tokens to unlock premium routing and analytics.</p>
+    </div>
+    <div class="card">
+      <h3>DAO Governance</h3>
+      <p>Protocol upgrades voted by token holders.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Protocol Stats</h2>
+  <div class="stats">
+    <div class="stat-box">
+      <h3 id="users">0</h3>
+      <p>Active Wallets</p>
+    </div>
+    <div class="stat-box">
+      <h3 id="tx">0</h3>
+      <p>Transactions</p>
+    </div>
+    <div class="stat-box">
+      <h3>$1.2M</h3>
+      <p>Total Value Locked</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 style="text-align:center;">Launch dApp</h2>
+  <div class="dapp">
+    <input type="number" id="amount" placeholder="Amount to Stake">
+    <button onclick="stake()">Stake TRAC</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 TRAC Nexus Protocol. All rights reserved.
+</footer>
+
+<script>
+let connected=false;
+
+function connectWallet(){
+  if(!connected){
+    alert("Wallet Connected (Simulated)");
+    connected=true;
+  }else{
+    alert("Already Connected");
+  }
+}
+
+function stake(){
+  let amt=document.getElementById("amount").value;
+  if(!connected){
+    alert("Connect wallet first");
+    return;
+  }
+  if(amt<=0){
+    alert("Enter valid amount");
+    return;
+  }
+  alert("Staked "+amt+" TRAC (Simulated)");
+}
+
+let users=1200;
+let tx=45200;
+
+setInterval(()=>{
+  users+=Math.floor(Math.random()*3);
+  tx+=Math.floor(Math.random()*10);
+  document.getElementById("users").innerText=users;
+  document.getElementById("tx").innerText=tx;
+},2000);
+</script>
+
+</body>
+</html>
