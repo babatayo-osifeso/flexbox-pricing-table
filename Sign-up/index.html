@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <style>
+    body {
+      background-image: url("bg_image.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: centr;
+      align-items: cener;
+      height: max-content;
+      background: rgb(57, 167, 209);
+      width: 300px;
+    }
+    
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>User Login</h1>
+    <form class="form">
+      <input type="text" id="name" Placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <div class="password-forgotten">
+        <p>Forget Password?</p>
+        <p>Sign-up</p>
+      </div>
+      <button>Login</button>
+      
+    </form>
+  </div>
+</body>
+
+</html>

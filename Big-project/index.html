@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Support Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Smart Support Pro</h2>
+  <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</header>
+
+<div class="container">
+
+  <div class="sidebar">
+    <input type="text" id="search" placeholder="Search chats..." onkeyup="filterChats()">
+    <ul id="chatList"></ul>
+  </div>
+
+  <div class="chat-window">
+    <div id="messages"></div>
+    <div class="input-area">
+      <input type="text" id="messageInput" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <div class="user-panel">
+    <h3 id="userName">Select a chat</h3>
+    <p id="status">Status: Open</p>
+    <button onclick="toggleStatus()">Toggle Status</button>
+    <hr>
+    <h4>Analytics</h4>
+    <p id="messageCount">Messages: 0</p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

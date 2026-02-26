@@ -1,0 +1,80 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.slide {
+  width: 1080px;
+  height: 1350px;
+  /* Brighter gradient base */
+  background: radial-gradient(circle at 30% 30%, #4b158c 0%, #0a0a1a 70%);
+  background-color: #0a0a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔆 Neon glow layers */
+.slide::before,
+.slide::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.slide::before {
+  top: -150px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(255, 0, 200, 0.9) 0%, transparent 70%);
+}
+
+.slide::after {
+  bottom: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.9) 0%, transparent 70%);
+}
+
+/* 💥 Extra mid glow for stronger light center */
+.slide::after, .slide::before;
+.slide::before {
+  mix-blend-mode: screen;
+}
+
+.slide::after {
+  mix-blend-mode: screen;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 80%;
+}
+
+.content h1 {
+  font-size: 90px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 0 0 25px rgba(255,255,255,0.8), 0 0 40px rgba(0, 200, 255, 0.4);
+}
+
+.content p {
+  font-size: 50px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 22px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  line-height: 1.4;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teegreen Logo</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .logo {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #4CAF50, #2196F3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background-color: #fff;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      transform-origin: 100% 100%;
+    }
+
+    .segment.xchange {
+      background-color: #FFD700;
+      transform: rotate(0deg);
+    }
+
+    .segment.tech {
+      background-color: #2196F3;
+      transform: rotate(120deg);
+    }
+
+    .segment.aquaculture {
+      background-color: #4CAF50;
+      transform: rotate(240deg);
+    }
+
+    .logo-text {
+      position: absolute;
+      bottom: -20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <div class="segment xchange"></div>
+    <div class="segment tech"></div>
+    <div class="segment aquaculture"></div>
+    <div class="logo-text">Teegreen Global Enterprises</div>
+  </div>
+</body>
+</html>

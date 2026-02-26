@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Styled Face — HTML/CSS + SVG</title>
+<style>
+  :root{
+    --bg: #f2efe8;
+    --skin: #f0c9a0;    /* skin tone */
+    --skin-shadow: #e3b28a;
+    --hair: #1f2b2f;    /* hair */
+    --beard: #6b3f36;
+    --eye: #273b6d;
+    --lip: #c16c70;
+    --brow: #2b2b2b;
+    --face-size: 420px;
+  }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  .card{
+    width:var(--face-size);
+    max-width:95vw;
+    padding:22px;
+    background:linear-gradient(180deg,#ffffffdd,#ffffffaa);
+    border-radius:18px;
+    box-shadow: 0 8px 30px rgba(20,20,40,0.12);
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:center;
+  }
+
+  svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* Small utility classes for feature variants */
+  .squared-eyebrows .brow { rx: 2.5; ry: 2.2; } /* eyebrow shape tweak via attr in svg */
+  /* Theme helper: darken skin quickly */
+  .dark-skin { --skin: #d4a07a; --skin-shadow:#b77e5c; }
+
+  /* accessible label styling */
+  .caption { text-align:center; margin-top:10px; font-size:14px; color:#444; }
+</style>
+</head>
+<body>
+  <div class="card" role="region" aria-label="Generated stylized portrait">
+    <!-- Inline SVG portrait -->
+    <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" role="img">
+      <!-- defs for reusable gradients -->
+      <defs>
+        <radialGradient id="skinGrad" cx="50%" cy="35%" r="60%">
+          <stop offset="0%" stop-color="var(--skin)"/>
+          <stop offset="100%" stop-color="var(--skin-shadow)"/>
+        </radialGradient>
+
+        <linearGradient id="hairGrad" x1="0" x2="1">
+          <stop offset="0%" stop-color="var(--hair)" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#0f1516" stop-opacity="0.95"/>
+        </linearGradient>
+      </defs>
+
+      <!-- background square -->
+      <rect x="40" y="40" width="340" height="340" rx="12" fill="#f6d5bb" />
+
+      <!-- head / skin -->
+      <ellipse cx="210" cy="200" rx="110" ry="132" fill="url(#skinGrad)" />
+
+      <!-- hair top -->
+      <path d="M120 125 C140 80, 180 70, 210 84 C240 70, 280 78, 300 120 C315 150, 300 140,260 140 C240 140,220 130,210 130 C200 130,180 140,150 144 C124 148,118 140,120 125Z"
+            fill="url(#hairGrad)" />
+
+      <!-- side hair -->
+      <path d="M100 150 C92 200, 100 260, 120 290 L140 280 C120 250,120 190,140 160 C130 152,110 150,100 150Z"
+            fill="var(--hair)" opacity="0.95" />
+
+      <path d="M320 150 C328 200,320 260,300 290 L280 280 C300 250,300 190,280 160 C290 152,310 150,320 150Z"
+            fill="var(--hair)" opacity="0.95" />
+
+      <!-- ears -->
+      <ellipse cx="110" cy="210" rx="12" ry="20" fill="var(--skin-shadow)" opacity="0.9" />
+      <ellipse cx="310" cy="210" rx="12" ry="20" fill="var(--skin-shadow)" opacity="0.9" />
+
+      <!-- eyebrows -->
+      <g transform="translate(0,0)" fill="none" stroke="var(--brow)" stroke-linecap="round" stroke-width="12">
+        <path d="M150 150 C168 140, 190 138, 208 146" stroke-linejoin="round" />
+        <path d="M268 146 C286 138, 308 140, 326 150" stroke-linejoin="round" />
+      </g>
+
+      <!-- eyes -->
+      <g class="eyes" transform="translate(0,10)" fill="white">
+        <ellipse cx="176" cy="176" rx="26" ry="14" fill="white" />
+        <ellipse cx="244" cy="176" rx="26" ry="14" fill="white" />
+        <!-- iris + pupil -->
+        <circle cx="176" cy="176" r="8" fill="var(--eye)" />
+        <circle cx="244" cy="176" r="8" fill="var(--eye)" />
+        <circle cx="173" cy="173" r="3" fill="#ffffff" opacity="0.9" />
+        <circle cx="241" cy="173" r="3" fill="#ffffff" opacity="0.9" />
+      </g>
+
+      <!-- nose (subtle shading) -->
+      <path d="M210 188 Q205 210 210 226 Q215 210 210 188Z" fill="#e2b98b" opacity="0.9" />
+
+      <!-- mouth/lips -->
+      <g transform="translate(0,40)">
+        <path d="M180 256 Q210 276 240 256 Q210 290 180 256Z" fill="var(--lip)" opacity="0.95"/>
+        <path d="M190 255 Q210 267 230 255" fill="none" stroke="#8a3f42" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- beard / jaw shading -->
+      <path d="M135 260 C150 320, 270 320, 285 260 C300 230, 295 210, 285 200 C260 220, 160 220,135 200 C125 210,120 230,135 260Z"
+            fill="var(--beard)" opacity="0.95" />
+
+      <!-- neck -->
+      <rect x="170" y="300" width="80" height="48" rx="12" fill="var(--skin-shadow)" opacity="0.95" />
+
+      <!-- small decorative shine on hair -->
+      <path d="M160 120 C176 110, 200 108, 214 120" stroke="#ffffff22" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
+</body>
+</html>
