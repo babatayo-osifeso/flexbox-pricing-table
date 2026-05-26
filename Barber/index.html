@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Law's Cut | Premium Grooming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-scissors"></i> <span>THE LAW'S CUT</span>
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars" id="menuIcon"></i>
+</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#location">Location</a>
+            <a href="#contact">Contact Us</a>
+            <button class="btn-primary open-modal">Book Now</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Luxury Barbering & Traditional Shaves</p>
+            <h1>Crafted Cuts &<br>Classic Shaves</h1>
+            <p class="hero-desc">Experience Premier Grooming tailored precisely to your style.</p>
+            <div class="hero-cta">
+                <button class="btn-primary open-modal">BOOK APPOINTMENT</button>
+                <a href="tel:+234 815 627 4861" class="phone-link"><i class="fa-solid fa-phone"></i> +234 815 627 4861</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section reveal">
+        <h2>Our Featured Services</h2>
+        <div class="services-container">
+            
+            <div class="service-card">
+                <div class="icon-hexagon">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <h3>Haircuts</h3>
+                <p>Precision fades, classic tapers, and custom scissor cuts styled to perfection.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-hexagon">
+                    <i class="fa-solid fa-mustache"></i>
+                </div>
+                <h3>Beard Trims</h3>
+                <p>Expert beard shaping, lining, and conditioning treatment for the modern gentleman.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-hexagon">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                </div>
+                <h3>Hot Towel Shaves</h3>
+                <p>Traditional straight-razor shave complete with essential oils and hot towels.</p>
+            </div>
+           
+
+        </div>
+    </section>
+    
+    <section id="gallery" class="gallery-section reveal">
+    <h2>Our Work</h2>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800" alt="Barber Cut">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=800" alt="Fade Haircut">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800" alt="Beard Grooming">
+        </div>
+        
+        <div class="gallery-item">
+            <img src="./Assets/images/photo.jpg" alt="Beard Grooming">
+        </div>
+
+    </div>
+</section>
+
+    <section id="location" class="info-section reveal">
+    <h2>Our Location</h2>
+
+    <div class="info-card">
+        <i class="fa-solid fa-location-dot"></i>
+
+        <p>123 Ayetoro, Ogun State, Nigeria</p>
+
+        <a href="https://maps.google.com" target="_blank" class="btn-primary">
+            Open Map
+        </a>
+    </div>
+</section>
+
+<section id="contact" class="info-section reveal">
+    <h2>Contact Us</h2>
+
+    <div class="info-card">
+        <i class="fa-solid fa-phone"></i>
+
+        <p>+234 815 627 4861</p>
+        <p>info@thelawscut.com</p>
+
+        <a href="https://wa.me/2348156274861" target="_blank" class="btn-primary">
+            Chat on WhatsApp
+        </a>
+    </div>
+</section>
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h4>Law's Cut</h4>
+            <p>Premium grooming experience for modern gentlemen.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Hours</h4>
+            <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+            <p>Sunday: 10:00 AM - 5:00 PM</p>
+        </div>
+
+        <div class="footer-col social-links">
+            <h4>Follow Us</h4>
+            <div class="icons">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Book Your Appointment</h3>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="clientName">Name</label>
+                    <input type="text" id="clientName" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="serviceSelect">Select Service</label>
+                    <select id="serviceSelect">
+                        <option value="haircut">Haircut</option>
+                        <option value="beard">Beard Trim</option>
+                        <option value="shave">Hot Towel Shave</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookDate">Date</label>
+                    <input type="date" id="bookDate" required>
+                </div>
+                <button type="submit" class="btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
